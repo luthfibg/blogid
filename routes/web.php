@@ -7,17 +7,17 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('home', ['title' => 'Home']);
 });
 
 Route::get('/myblogs', function() {
-    return view('myblogs');
+    return view('myblogs', ['title'=> 'My Blogs']);
 });
 
 Route::get('/about', function() {
-    return view('about');
+    return view('about', ['title'=> 'About']);
 });
 
 Route::get('/contact', function() {
-    return view('contact');
+    return view('contact', ['title'=> 'Contact']);
 });
