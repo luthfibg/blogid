@@ -21,3 +21,15 @@ Route::get('/about', function() {
 Route::get('/contact', function() {
     return view('contact', ['title'=> 'Contact']);
 });
+
+Route::get('/profile', function() {
+    return view('profile');
+});
+
+Route::get('/settings', function() {
+    return view('settings');
+});
+
+Route::get('/signout', function() {
+    return view('contact');
+});
