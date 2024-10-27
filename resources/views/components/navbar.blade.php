@@ -3,7 +3,7 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-8 w-16" src="{{ asset('images/logo.png') }}" alt="Your Company">
+            <img class="h-8 w-16" src="{{ asset('images/logo.png') }}" alt="Blogid logo">
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4 relative">
@@ -11,8 +11,8 @@
               <x-nav-link href="/home" :active='request()->is("home")'>
                 Home
               </x-nav-link>
-              <x-nav-link href="/myblogs" :active='request()->is("myblogs")'>
-                My Blogs
+              <x-nav-link href="/posts" :active='request()->is("posts")'>
+                All Blogs
               </x-nav-link>
               <x-nav-link href="/about" :active='request()->is("about")'>
                 About
@@ -89,7 +89,7 @@
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-        <a href="/myblogs" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">My Blogs</a>
+        <a href="/posts" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">All Blogs</a>
         <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
         <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
       </div>

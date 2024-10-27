@@ -10,8 +10,25 @@ Route::get('/home', function () {
     return view('home', ['title' => 'Home']);
 });
 
-Route::get('/myblogs', function() {
-    return view('myblogs', ['title'=> 'My Blogs']);
+Route::get('/posts', function() {
+    return view('posts', ['title' => 'All Blogs'], ['posts'=> [
+        [
+            'id' => 1,
+            'title' => 'Prolog: Niimus',
+            'author' => 'Muhamad Luthfi',
+            'project' => 'Niimus',
+            'season' => 'Prolog Utama',
+            'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui voluptatum dicta reiciendis facilis totam unde enim expedita delectus, impedit hic nam ducimus fuga aut a aliquam consectetur dolor, veritatis quos.',
+        ],
+        [
+            'id' => 2,
+            'title'=> 'Cahaya Tirani',
+            'author' => 'Muhamad Luthfi',
+            'project' => 'Niimus',
+            'season' => 'Season 1',
+            'body'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit numquam rerum mollitia fugit? Nisi quam eius, delectus modi iure similique, nihil id facilis, suscipit tempora nam. Eveniet odit quaerat doloremque.',
+        ],
+    ]]);
 });
 
 Route::get('/about', function() {

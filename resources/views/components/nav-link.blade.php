@@ -9,26 +9,3 @@
    aria-current="{{ request()->is('home') ? 'page' : 'false' }}">
     {{ $slot }}
 </a>
-
-
-{{-- <style>
-    .active-nav-link::after,
-    .hover-nav-link:hover::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #f87171; /* Warna merah, ganti sesuai kebutuhan */
-        transition: width 0.3s ease-in-out;
-    }
-    
-    .active-nav-link::after {
-        width: 100%;
-    }
-    
-    .hover-nav-link:hover::after {
-        width: 100%;
-    }
-</style> --}}

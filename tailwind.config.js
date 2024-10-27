@@ -42,6 +42,9 @@ export default {
                     900: '#543199',
                 },
             },
+            transitionProperty: {
+                padding: 'padding',
+            },
         },
     },
     plugins: [],
