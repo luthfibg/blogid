@@ -11,8 +11,11 @@
               <x-nav-link href="/home" :active='request()->is("home")'>
                 Beranda
               </x-nav-link>
-              <x-nav-link href="/posts" :active='request()->is("posts")'>
-                Semua Blog
+              <x-nav-link href="/blogs" :active='request()->is("blogs")'>
+                Blog
+              </x-nav-link>
+              <x-nav-link href="/sagas" :active='request()->is("sagas")'>
+                Kisah
               </x-nav-link>
               <x-nav-link href="/about" :active='request()->is("about")'>
                 Tentang
@@ -89,7 +92,8 @@
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-        <a href="/posts" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">All Blogs</a>
+        <a href="/blogs" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
+        <a href="/sagas" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Kisah</a>
         <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
         <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
       </div>
