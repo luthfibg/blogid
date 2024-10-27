@@ -6,7 +6,7 @@
             <img class="h-8 w-16" src="{{ asset('images/logo.png') }}" alt="Your Company">
           </div>
           <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
+            <div class="ml-10 flex items-baseline space-x-4 relative">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <x-nav-link href="/home" :active='request()->is("home")'>
                 Home
@@ -53,13 +53,13 @@
               x-transition:leave-end="opacity-0 scale-95"
                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <x-dropdown-link href="/profile" :active='request()->is("profile")'>
+                <x-dropdown-link href="/profile">
                   My profile
                 </x-dropdown-link>
-                <x-dropdown-link href="/settings" :active='request()->is("settings")'>
+                <x-dropdown-link href="/settings">
                   Settings
                 </x-dropdown-link>
-                <x-dropdown-link href="/signout" :active='request()->is("signout")'>
+                <x-dropdown-link href="/signout">
                   Sign out
                 </x-dropdown-link>
               </div>

@@ -1,1 +1,1 @@
-<a {{ $attributes }} class="{{ $active ? 'bg-gray-100' : 'bg-white'}} block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1" aria-current={{ request()->is('profile') ? 'page' : 'false' }}>{{ $slot }}</a>
+<a {{ $attributes }} class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1" aria-current={{ request()->is('profile') ? 'page' : 'false' }}>{{ $slot }}</a>
