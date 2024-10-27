@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -12,46 +13,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/blogs', function() {
-    return view('blogs', ['title' => 'Semua Blog'], ['blogs'=> [
-        [
-            'id' => 1,
-            'slug' => 'kenalan-dengan-blogid',
-            'title' => 'Kenalan Dengan Blogid',
-            'author' => 'Muhamad Luthfi',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia!.',
-        ],
-        [
-            'id' => 2,
-            'slug' => 'tips-posting-blog-di-blogid',
-            'title'=> 'Tips Posting Blog di Blogid',
-            'author' => 'Muhamad Luthfi',
-            'body'=> 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius rerum natus tempora repudiandae nam, illum atque qui voluptatem quas fugiat quod consectetur corrupti inventore recusandae dolorum laudantium, maiores quis impedit?',
-        ],
-    ]]);
+    return view('blogs', ['title' => 'Semua Blog', 'blogs' => Blog::all()]);
 });
 
 Route::get('blogs/{slug}', function($slug) {
-    $blogs = [
-        [
-            'id' => 1,
-            'slug' => 'kenalan-dengan-blogid',
-            'title' => 'Kenalan Dengan Blogid',
-            'author' => 'Muhamad Luthfi',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, officia!.',
-        ],
-        [
-            'id' => 2,
-            'slug' => 'tips-posting-blog-di-blogid',
-            'title'=> 'Tips Posting Blog di Blogid',
-            'author' => 'Muhamad Luthfi',
-            'body'=> 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius rerum natus tempora repudiandae nam, illum atque qui voluptatem quas fugiat quod consectetur corrupti inventore recusandae dolorum laudantium, maiores quis impedit?',
-        ],
-    ];
-
-    $blog = Arr::first($blogs, function($blogs) use ($slug) {
-        return $blogs['slug'] == $slug;
-    });
-
+    $blog = Blog::find($slug);
     return view('blog', ['title' => 'Baca Blog', 'blog' => $blog]);
 });
 
