@@ -1,4 +1,4 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot>
-    <p>Contact Developer</p>
+    <p>Kontak Pengembang</p>
 </x-layout>
