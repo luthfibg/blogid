@@ -28,9 +28,13 @@ class Blog
         ];
     }
 
-    public static function find($slug) {
-        return Arr::first(static::all(), function($blogs) use ($slug) {
-            return $blogs['slug'] == $slug;
-        });
+    public static function find($slug):array {
+        $blog = Arr::first(static::all(), fn($blog) => $blog['slug'] == $slug);
+
+        if (! $blog) {
+            abort(404, 'Maaf, Halaman Tidak Ditemukan');
+        }
+
+        return $blog;
     }
 }
