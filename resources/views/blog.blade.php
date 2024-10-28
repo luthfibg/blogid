@@ -8,7 +8,6 @@
             <h3 class="text-2xl font-bold mr-2 tracking-tight text-primary-500">
                 {{ $blog['title'] }}
             </h3>
-            {{-- <span class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10">{{ $blog['season'] }}</span> --}}
         </div>
         <div class="text-base text-gray-300">
             <a href="#" class="text-sm">{{ $blog['author'] }} | 27 Oktober 2024</a>
