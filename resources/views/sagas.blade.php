@@ -24,7 +24,7 @@
             </span>
         </a>
         <div class="text-base text-gray-300">
-            <a href="#" class="text-sm">{{ $saga['author'] }} | <span class="text-yellow-300"> {{ $saga['project'] }} </span> | 27 Oktober 2024</a>
+            <a href="#" class="text-sm">{{ $saga['author'] }} | <span class="text-yellow-300"> {{ $saga['project'] }} </span> | {{ $saga->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">
             {{ Str::limit($saga['body'], '150') }}

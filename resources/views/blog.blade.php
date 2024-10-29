@@ -10,12 +10,11 @@
             </h3>
         </div>
         <div class="text-base text-gray-300">
-            <a href="#" class="text-sm">{{ $blog['author'] }} | 27 Oktober 2024</a>
+            <a href="#" class="text-sm">{{ $blog['author'] }} | {{ $blog->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">
             {{ $blog['body'] }}
         </p>
         <a href="/blogs" class="text-sm pt-3 pr-3 pb-3 rounded-lg hover:bg-primary-100 hover:pl-3 hover:text-white transition-all ease-in-out duration-500 text-secondary-500">&laquo; Kembali ke semua blog </a>
     </article>
-
 </x-layout>

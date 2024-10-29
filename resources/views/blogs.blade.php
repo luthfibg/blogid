@@ -12,7 +12,7 @@
             </h3>
         </a>
         <div class="text-base text-gray-300">
-            <a href="#" class="text-sm">{{ $blog['author'] }} | 27 Oktober 2024</a>
+            <a href="#" class="text-sm">{{ $blog['author'] }} | {{ $blog->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">
             {{ Str::limit($blog['body'], '150') }}
