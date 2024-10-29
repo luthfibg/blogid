@@ -16,7 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('author');
+            $table->foreignId('author_id')->constrained(
+                table: 'users', indexName: 'sagas_author_id'
+            );
             $table->string('project');
             $table->string('season');
             $table->string('tile');

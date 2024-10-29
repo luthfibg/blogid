@@ -33,6 +33,11 @@ Route::get('sagas/{saga:slug}', function(Saga $saga) {
     return view('saga', ['title' => 'Baca Bagian', 'saga' => $saga]);
 });
 
+Route::get('authors/{user}', function(User $user) {
+    return view('sagas', ['title' => 'Bagian oleh ' . $user->name, 'sagas' => $user->sagas]);
+});
+
+
 Route::get('/about', function() {
     return view('about', ['title'=> 'Tentang Kami']);
 });

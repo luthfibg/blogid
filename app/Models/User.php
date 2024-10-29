@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class, 'author_id');
     }
+
+    public function sagas(): HasMany
+    {
+        return $this->hasMany(Saga::class,'author_id');
+    }
 }
