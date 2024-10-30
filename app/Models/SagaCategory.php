@@ -11,6 +11,11 @@ class SagaCategory extends Model
     /** @use HasFactory<\Database\Factories\SagaCategoryFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
+    
     public function sagas(): HasMany
     {
         return $this->hasMany(Saga::class);

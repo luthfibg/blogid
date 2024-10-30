@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Blog;
+use App\Models\Saga;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\BlogCategory;
+use App\Models\SagaCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call([UserSeeder::class, BlogCategorySeeder::class, SagaCategorySeeder::class]);
+
+        // Mengambil semua user kecuali yang dikustom berdasarkan email
+        $filteredUsers = User::where('email', '!=', 'luthfi@gmail.com')->get();
+
+        Blog::factory(35)->recycle([
+            $filteredUsers,
+            BlogCategory::all(),
+        ])->create();
+
+        Saga::factory(15)->recycle([
+            User::all(),
+            SagaCategory::all(),
+        ])->create();
     }
 }
