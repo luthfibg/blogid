@@ -6,17 +6,14 @@
     @foreach ($blogs as $blog)
         
     <article class="py-8 max-w-screen-sm mx-auto border-b border-gray-200">
-        <a href="/blogs/{{ $blog['slug'] }}" class="flex items-center">
+        <a href="/blogs/{{ $blog['slug'] }}" class="flex items-center mb-2">
             <h3 class="text-2xl font-bold mr-2 tracking-tight text-primary-500">
                 {{ $blog['title'] }}
             </h3>
         </a>
         <div class="text-xs text-secondary-100">
-            Oleh:
-            <a href="/authors/{{ $blog->author->username }}" class="text-gray-300">{{ $blog->author->name }}</a>
-            |
-            <a href="# }}" class="text-gray-300">Pemrograman Web</a>
-             | 
+            <a href="/authors-blog/{{ $blog->author->username }}" class="text-gray-400 px-2 py-1 bg-gray-100 rounded-full">Oleh: {{ $blog->author->name }}</a>
+            <a href="# }}" class="text-gray-400 px-2 py-1 bg-gray-100 rounded-full">Pemrograman Web</a>
             <a href="#" class=" text-gray-300">{{ $blog->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">

@@ -21,8 +21,8 @@ Route::get('blogs/{blog:slug}', function(Blog $blog) {
     return view('blog', ['title' => 'Baca Blog', 'blog' => $blog]);
 });
 
-Route::get('authors/{user}', function(User $user) {
-    return view('blogs', ['title' => 'Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
+Route::get('authors-blog/{user:username}', function(User $user) {
+    return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
 });
 
 Route::get('/sagas', function() {
@@ -33,8 +33,8 @@ Route::get('sagas/{saga:slug}', function(Saga $saga) {
     return view('saga', ['title' => 'Baca Bagian', 'saga' => $saga]);
 });
 
-Route::get('authors/{user}', function(User $user) {
-    return view('sagas', ['title' => 'Bagian oleh ' . $user->name, 'sagas' => $user->sagas]);
+Route::get('authors-saga/{user:username}', function(User $user) {
+    return view('sagas', ['title' => (count($user->sagas)) . ' Bagian oleh ' . $user->name, 'sagas' => $user->sagas]);
 });
 
 
