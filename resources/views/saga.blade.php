@@ -22,7 +22,7 @@
             </span>
         </div>
         <div class="text-base text-gray-300">
-            <a href="/authors/{{ $saga->author->id }}" class="text-sm">{{ $saga->author->name }}</a> | <a href="#" class="text-sm"><span class="text-yellow-300"> {{ $saga['project'] }} </span></a> | <a href="#" class="text-sm">{{ $saga->created_at->diffForHumans() }}</a>
+            <a href="/authors/{{ $saga->author->username }}" class="text-sm">{{ $saga->author->name }}</a> | <a href="#" class="text-sm"><span class="text-yellow-300"> {{ $saga['project'] }} </span></a> | <a href="#" class="text-sm">{{ $saga->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">
             {{ $saga['body'] }}
