@@ -3,6 +3,7 @@
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Saga;
+use App\Models\SagaCategory;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::get('authors-saga/{user:username}', function(User $user) {
     return view('sagas', ['title' => (count($user->sagas)) . ' Bagian oleh ' . $user->name, 'sagas' => $user->sagas]);
 });
 
+Route::get('categories-saga/{sagaCategory:slug}', function(SagaCategory $sagaCategory) {
+    return view('sagas', ['title' => (count($sagaCategory->sagas)) . ' Bagian tentang ' . $sagaCategory->name, 'sagas' => $sagaCategory->sagas]);
+});
 
 Route::get('/about', function() {
     return view('about', ['title'=> 'Tentang Kami']);

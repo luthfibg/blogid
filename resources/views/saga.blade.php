@@ -4,7 +4,7 @@
     </x-slot>
         
     <article class="py-8 max-w-screen-sm mx-auto border-b border-gray-200">
-        <div class="flex items-center">
+        <div class="flex items-center mb-2">
             <h3 class="text-2xl font-bold mr-2 tracking-tight text-primary-500">
                 {{ $saga['title'] }}
             </h3>
@@ -21,8 +21,14 @@
                 {{ $saga['rate'] }}
             </span>
         </div>
-        <div class="text-base text-gray-300">
-            <a href="/authors/{{ $saga->author->username }}" class="text-sm">{{ $saga->author->name }}</a> | <a href="#" class="text-sm"><span class="text-yellow-300"> {{ $saga['project'] }} </span></a> | <a href="#" class="text-sm">{{ $saga->created_at->diffForHumans() }}</a>
+        <div class="text-xs gap-2 flex items-center">
+            <a href="/authors-saga/{{ $saga->author->username }}" class="text-gray-400 px-2 py-1 bg-gray-100 rounded-full">
+                {{ $saga->author->name }}
+            </a>
+            <a href="/categories-saga/{{ $saga->sagaCategory->slug }}" class="text-yellow-700 px-2 py-1 bg-yellow-100 rounded-full">
+                {{ $saga->sagaCategory->name }}
+            </a>
+            <a href="#" class="text-gray-400">{{ $saga->created_at->diffForHumans() }}</a>
         </div>
         <p class="my-4 font-light">
             {{ $saga['body'] }}

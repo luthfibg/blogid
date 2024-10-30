@@ -12,7 +12,7 @@
                     {{ $blog['title'] }}
                 </h3>
             </a>
-            <div class="text-xs text-secondary-100">
+            <div class="text-xs">
                 <a href="/authors-blog/{{ $blog->author->username }}" class="text-gray-400 px-2 py-1 bg-gray-100 rounded-full">Oleh: {{ $blog->author->name }}</a>
                 <a href="/categories-blog/{{ $blog->blogCategory->slug }}" class="text-gray-400 px-2 py-1 bg-gray-100 rounded-full">{{ $blog->blogCategory->name }}</a>
                 <a href="#" class=" text-gray-300">{{ $blog->created_at->diffForHumans() }}</a>
