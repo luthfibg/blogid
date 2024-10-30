@@ -19,6 +19,10 @@ return new class extends Migration
                 table: 'users',
                 indexName: 'blogs_author_id'
             );
+            $table->foreignId('blog_category_id')->constrained(
+                table: 'blog_categories',
+                indexName: 'blogs_category_id'
+            );
             $table->text('body');
             $table->timestamps();
         });

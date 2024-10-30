@@ -19,6 +19,9 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained(
                 table: 'users', indexName: 'sagas_author_id'
             );
+            $table->foreignId('saga_category_id')->constrained(
+                table: 'saga_categories', indexName: 'sagas_category_id'
+            );
             $table->string('project');
             $table->string('season');
             $table->string('tile');

@@ -14,4 +14,9 @@ class Saga extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function sagaCategory(): BelongsTo
+    {
+        return $this->belongsTo(SagaCategory::class);
+    }
 }

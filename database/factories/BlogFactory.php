@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\BlogCategory;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,6 +23,7 @@ class BlogFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => Str::slug(fake()->sentence()),
             'author_id' => User::factory(),
+            'blog_category_id' => BlogCategory::factory(),
             'body' => fake()->paragraph(5, true),
         ];
     }

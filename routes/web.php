@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Saga;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::get('blogs/{blog:slug}', function(Blog $blog) {
 
 Route::get('authors-blog/{user:username}', function(User $user) {
     return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
+});
+
+Route::get('categories-blog/{blogCategory:slug}', function(BlogCategory $blogCategory) {
+    return view('blogs', ['title' => (count($blogCategory->blogs)) . ' Blog tentang ' . $blogCategory->name, 'blogs' => $blogCategory->blogs]);
 });
 
 Route::get('/sagas', function() {

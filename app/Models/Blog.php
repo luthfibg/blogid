@@ -20,4 +20,9 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function blogCategory(): BelongsTo
+    {
+        return $this->belongsTo(BlogCategory::class);
+    }
 }

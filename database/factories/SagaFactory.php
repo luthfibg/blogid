@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\SagaCategory;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class SagaFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'author_id' => User::factory(),
+            'saga_category_id' => SagaCategory::factory(),
             'project' => fake()->word(),
             'season' => fake()->word(),
             'tile' => strval(fake()->randomFloat(1, 1, 3)),
