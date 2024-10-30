@@ -16,7 +16,9 @@ Route::get('/home', function () {
 });
 
 Route::get('/blogs', function() {
-    return view('blogs', ['title' => 'Semua Blog', 'blogs' => Blog::all()]);
+    $blogs = Blog::with('author', 'blogCategory')->latest()->get();
+
+    return view('blogs', ['title' => 'Semua Blog', 'blogs' => $blogs]);
 });
 
 Route::get('blogs/{blog:slug}', function(Blog $blog) {
@@ -32,7 +34,8 @@ Route::get('categories-blog/{blogCategory:slug}', function(BlogCategory $blogCat
 });
 
 Route::get('/sagas', function() {
-    return view('sagas', ['title' => 'Semua Kisah', 'sagas' => Saga::all()]);
+    $sagas = Saga::with('author', 'sagaCategory')->latest()->get();
+    return view('sagas', ['title' => 'Semua Kisah', 'sagas' => $sagas ]);
 });
 
 Route::get('sagas/{saga:slug}', function(Saga $saga) {
