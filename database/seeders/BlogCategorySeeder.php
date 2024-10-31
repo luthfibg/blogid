@@ -15,37 +15,44 @@ class BlogCategorySeeder extends Seeder
     {
         BlogCategory::create([
             'name' => 'Pemrograman Web',
-            'slug'=> 'pemrograman-web',            
+            'slug'=> 'pemrograman-web',
+            'color' => 'blue',   
         ]);
 
         BlogCategory::create([
             'name' => 'Pemrograman Mobile',
             'slug'=> 'pemrograman-mobile',
+            'color' => 'green',
         ]);
 
         BlogCategory::create([
             'name' => 'Internet of Things',
             'slug'=> 'internet-of-things',
+            'color' => 'red',
         ]);
 
         BlogCategory::create([
             'name' => 'Desain Grafis',
             'slug'=> 'desain-grafis',
+            'color' => 'yellow',
         ]);
 
         BlogCategory::create([
             'name' => 'Machine Learning',
             'slug'=> 'machine-learning',
+            'color' => 'purple',
         ]);
 
         BlogCategory::create([
             'name' => 'Data Science',
             'slug'=> 'data-science',
+            'color' => 'orange',
         ]);
 
         BlogCategory::create([
             'name'=> 'Game Development',
             'slug'=> 'game-development',
+            'color' => 'gray',
         ]);
     }
 }
