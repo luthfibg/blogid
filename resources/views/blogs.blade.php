@@ -5,7 +5,7 @@
 
     @if ($blogs->isNotEmpty())
         <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-0"> 
-            <div class="grid gap-8 lg:grid-cols-3 sm:grid-cols-2">
+            <div class="grid gap-4 md:gap-6 lg:grid-cols-3 sm:grid-cols-2">
             @foreach ($blogs as $blog)
             
             {{-- <article class="py-8 max-w-screen-sm mx-auto border-b border-gray-200">
@@ -24,8 +24,8 @@
                 </p>
                 <a href="/blogs/{{ $blog['slug'] }}" class="text-sm pt-3 pr-3 pb-3 rounded-lg hover:bg-primary-100 hover:pl-3 hover:text-white transition-all ease-in-out duration-500 text-secondary-500">Selengkapnya &raquo;</a>
             </article> --}} 
-                <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <div class="mb-2 flex justify-between items-center text-gray-500 h-[10%]">
+                <article class="p-6 bg-white rounded-lg border border-none shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <a href="/categories-blog/{{ $blog->blogCategory->slug }}" class="mb-2 flex justify-between items-center text-gray-500 h-[10%]">
                         <span class="bg-{{ $blog->blogCategory->color }}-100 text-{{ $blog->blogCategory->color }}-800 text-xs font-medium inline-flex items-center px-1.5 py-0.5 rounded dark:bg-{{ $blog->blogCategory->color }}-100 dark:text-{{ $blog->blogCategory->color }}-800">
                             @if ($blog->blogCategory->id == 1)
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mr-2 ml-0 p-0">
@@ -58,17 +58,17 @@
                             @endif
                             {{ $blog->blogCategory->name }}
                         </span>
-                        <span class="text-xs text-gray-400">{{ $blog->created_at->diffForHumans() }}</span>
-                    </div>
-                    <h4 class="mb-5 xl:mb-2 leading-6 text-xl font-bold tracking-tight text-gray-900 dark:text-white h-[25%]"><a href="#">{{ $blog['title'] }}</a></h4>
+                        <span class="text-xs font-light text-gray-400">{{ $blog->created_at->diffForHumans() }}</span>
+                    </a>
+                    <h4 class="mb-5 xl:mb-2 leading-6 text-xl font-bold tracking-tight text-gray-900 dark:text-white h-[25%]"><a href="/blogs/{{ $blog['slug'] }}">{{ $blog['title'] }}</a></h4>
                     <p class="xl:mb-1 text-sm font-light text-gray-500 dark:text-gray-400 h-[40%]">{{ Str::limit($blog['body'], '100') }}</p>
                     <div class="flex justify-between items-center bottom-0 h-auto">
-                        <div class="flex items-center space-x-2">
+                        <a href="/authors-blog/{{ $blog->author->username }}" class="flex items-center space-x-2 text-gray-400">
                             <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Green avatar" />
                             <span class="text-xs dark:text-white p-0">
                                 {{ $blog->author->name }}
                             </span>
-                        </div>
+                        </a>
                         <a href="/blogs/{{ $blog['slug'] }}" class="text-xs inline-flex items-center font-medium text-primary-600 dark:text-primary-500 px-2 py-1 hover:rounded-full hover:text-white hover:bg-primary-300 transition-all ease-in-out duration-500">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
