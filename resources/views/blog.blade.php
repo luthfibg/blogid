@@ -28,11 +28,11 @@
                         <div class="inline-flex gap-4 items-center mr-3 text-sm text-gray-900 dark:text-white">
                             <img class="w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                             <div>
-                                <a href="/authors-blog/{{ $blog->author->username }}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{ $blog->author->name }}</a>
+                                <a href="/blogs?author={{ $blog->author->username }}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{ $blog->author->name }}</a>
                                 <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{ $blog->created_at->diffForHumans() }}</time></p>
                             </div>
                             <div>
-                                <a href="/categories-blog/{{ $blog->blogCategory->slug }}" class="flex justify-between items-center text-gray-500">
+                                <a href="/blogs?blogCategory={{ $blog->blogCategory->slug }}" class="flex justify-between items-center text-gray-500">
                                     <span class="bg-{{ $blog->blogCategory->color }}-100 text-{{ $blog->blogCategory->color }}-800 text-xs font-medium inline-flex items-center px-1.5 py-0.5 rounded dark:bg-{{ $blog->blogCategory->color }}-100 dark:text-{{ $blog->blogCategory->color }}-800">
                                         @if ($blog->blogCategory->id == 1)
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 mr-2 ml-0 p-0">

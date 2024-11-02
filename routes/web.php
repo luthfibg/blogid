@@ -16,7 +16,8 @@ Route::get('/home', function () {
 });
 
 Route::get('/blogs', function() {
-    $blogs = Blog::with('author', 'blogCategory')->latest()->get();
+
+    $blogs = Blog::filterBlog(request(['search', 'blogCategory', 'author']))->latest()->get();
     return view('blogs', ['title' => 'Semua Blog', 'blogs' => $blogs]);
 });
 
