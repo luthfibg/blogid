@@ -7,16 +7,17 @@ use App\Models\BlogCategory;
 use App\Models\SagaCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ChartController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home', ['title' => 'Beranda BLOGID']);
-});
+Route::get('/home', [ChartController::class, 'blogsBasedOnCategories']);
 
 Route::get('/blogs', [BlogController::class, 'index']);
+
+Route::get('/blogs/create', [BlogController::class, 'create']);
 
 Route::get('/blogs/{blog:slug}', [BlogController::class,'show']);
 
