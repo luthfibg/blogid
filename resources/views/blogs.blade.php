@@ -7,6 +7,8 @@
         Cari Artikel
     </x-searchbar>
 
+    {{ $blogs->links() }}
+
     <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-0"> 
         <div class="grid gap-4 md:gap-6 lg:grid-cols-3 sm:grid-cols-2">
         @forelse ($blogs as $blog)
@@ -72,4 +74,7 @@
         @endforelse
         </div>  
     </div>
+
+    {{ $blogs->links() }}
+
 </x-layout>

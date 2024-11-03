@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\Blog;
-use App\Models\BlogCategory;
 use App\Models\Saga;
-use App\Models\SagaCategory;
 use App\Models\User;
+use App\Models\BlogCategory;
+use App\Models\SagaCategory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,23 +16,17 @@ Route::get('/home', function () {
     return view('home', ['title' => 'Beranda BLOGID']);
 });
 
-Route::get('/blogs', function() {
+Route::get('/blogs', [BlogController::class, 'index']);
 
-    $blogs = Blog::filterBlog(request(['search', 'blogCategory', 'author']))->latest()->get();
-    return view('blogs', ['title' => 'Semua Blog', 'blogs' => $blogs]);
-});
+Route::get('/blogs/{blog:slug}', [BlogController::class,'show']);
 
-Route::get('blogs/{blog:slug}', function(Blog $blog) {
-    return view('blog', ['title' => 'Baca Blog', 'blog' => $blog]);
-});
+// Route::get('authors-blog/{user:username}', function(User $user) {
+//     return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
+// });
 
-Route::get('authors-blog/{user:username}', function(User $user) {
-    return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
-});
-
-Route::get('categories-blog/{blogCategory:slug}', function(BlogCategory $blogCategory) {
-    return view('blogs', ['title' => (count($blogCategory->blogs)) . ' Blog tentang ' . $blogCategory->name, 'blogs' => $blogCategory->blogs]);
-});
+// Route::get('categories-blog/{blogCategory:slug}', function(BlogCategory $blogCategory) {
+//     return view('blogs', ['title' => (count($blogCategory->blogs)) . ' Blog tentang ' . $blogCategory->name, 'blogs' => $blogCategory->blogs]);
+// });
 
 Route::get('/sagas', function() {
     $sagas = Saga::with('author', 'sagaCategory')->latest()->get();

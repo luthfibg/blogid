@@ -13,7 +13,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::filterBlog(request(['search', 'blogCategory', 'author']))->latest()->paginate(9)->withQueryString();
+        return view('blogs', ['title' => 'Semua Blog', 'blogs' => $blogs]);
+
     }
 
     /**
@@ -37,7 +39,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blog', ['title' => 'Baca Blog', 'blog' => $blog]);
     }
 
     /**
