@@ -2,24 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
 {
     public function blogsBasedOnCategories()
     {
-        // $categories = \App\Models\BlogCategory::all();
-        // $data = [];
-        // foreach ($categories as $category) {
-        //     $data[$category->name] = \App\Models\Blog::where('blog_category_id', $category->id)->count();
-        // }
-        // return $data;
-
-        // Replace this with your actual data retrieval logic
-        $data = [
-            'labels' => ['January', 'February', 'March', 'April', 'May'],
-            'data' => [65, 59, 80, 81, 56],
+        // Pemetaan nama kategori ke label chart
+        $labelMap = [
+            'Pemrograman Web' => 'web',
+            'Pemrograman Mobile' => 'mobile',
+            'Internet of Things' => 'IoT',
+            'Desain Grafis' => 'design',
+            'Machine Learning' => 'ML',
+            'Data Science' => 'data',
+            'Game Development' => 'game'
         ];
-        return view('home', ['title' => 'Beranda BLOGID', 'data' => $data]);
+
+        // Ambil nama kategori dan hitung jumlah blog pada setiap kategori
+        $categories = BlogCategory::withCount('blogs')->get();
+
+        $data = [
+
+            // Ganti nama dengan nama singkat jika ada di $labelMap
+            'labels' => $categories->pluck('name')->map(function ($name) use ($labelMap) { return $labelMap[$name] ?? $name; }),
+
+            // Jumlah blog per kategori
+            'data' => $categories->pluck('blogs_count'),
+        ];
+
+        return view('home', ['title' => 'Beranda BLOGID', 'chartData' => $data]);
     }
 }
