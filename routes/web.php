@@ -8,12 +8,21 @@ use App\Models\SagaCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\SignController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [ChartController::class, 'blogsBasedOnCategories']);
+Route::get('/sign-in', [SignController::class, 'signin']);
+
+Route::post('/sign-in', [SignController::class, 'authenticate'])->name('sign-in');
+
+Route::get('/sign-up', [SignController::class, 'signup']);
+
+Route::post('/sign-up', [SignController::class, 'create'])->name('sign-up');
+
+Route::get('/home', [ChartController::class, 'blogsBasedOnCategories'])->name('home');
 
 Route::get('/blogs', [BlogController::class, 'index']);
 
