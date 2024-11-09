@@ -1,4 +1,4 @@
-<div class="block max-w-md w-[80%] md:w-[40%] lg:w-[35%] py-3 px-2 md:py-5 md:px-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<div class="block md:max-w-md w-[100%] md:w-[40%] lg:w-[35%] py-2 px-1 md:py-5 md:px-3 bg-white md:border md:border-gray-200 rounded-lg md:shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
     {{-- Card Header --}}
     @isset($header)

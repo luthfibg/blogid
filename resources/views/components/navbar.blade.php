@@ -8,21 +8,34 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4 relative">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              @if (Auth::check())
               <x-nav-link href="/home" :active='request()->is("home")'>
                 Beranda
               </x-nav-link>
-              <x-nav-link href="/blogs" :active='request()->is("blogs")'>
+              @endif
+                            
+              <x-nav-link href="/" :active='request()->is("blogs")'>
                 Blog
               </x-nav-link>
+
+              @if (Auth::check()) 
               <x-nav-link href="/sagas" :active='request()->is("sagas")'>
                 Kisah
               </x-nav-link>
+              @endif
+
               <x-nav-link href="/about" :active='request()->is("about")'>
                 Tentang
               </x-nav-link>
               <x-nav-link href="/contact" :active='request()->is("contact")'>
                 Kontak
-              </x-nav-link> 
+              </x-nav-link>
+              
+              @if (!Auth::check())
+              <x-nav-link href="/sign-in" :active='request()->is("sign-in")'>
+                Masuk
+              </x-nav-link>
+              @endif
             </div>
           </div>
         </div>
@@ -62,7 +75,7 @@
                 <x-dropdown-link href="/settings">
                   Settings
                 </x-dropdown-link>
-                <x-dropdown-link href="/signout">
+                <x-dropdown-link href="{{ route('sign-out') }}">
                   Sign out
                 </x-dropdown-link>
               </div>
@@ -91,11 +104,23 @@
     <div x-show="isOpen" class="md:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-        <a href="/blogs" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
+
+        @if (Auth::check())  
+        <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Beranda</a>
+        @endif
+
+        <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
+
+        @if (Auth::check())  
         <a href="/sagas" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Kisah</a>
+        @endif
+
         <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
         <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+
+        @if (!Auth::check())
+        <a href="/sign-in" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Masuk</a>
+        @endif
       </div>
       <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">
@@ -117,7 +142,7 @@
         <div class="mt-3 space-y-1 px-2">
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
+          <a href="{{ route('sign-out') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
         </div>
       </div>
     </div>

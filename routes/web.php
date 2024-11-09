@@ -10,21 +10,24 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\SignController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/sign-in', [SignController::class, 'signin']);
 
 Route::post('/sign-in', [SignController::class, 'authenticate'])->name('sign-in');
 
+
 Route::get('/sign-up', [SignController::class, 'signup']);
 
 Route::post('/sign-up', [SignController::class, 'create'])->name('sign-up');
 
+Route::get('/sign-out', [SignController::class, 'signout'])->name('sign-out');
+
 Route::get('/home', [ChartController::class, 'blogsBasedOnCategories'])->name('home')->middleware('auth');
 
-Route::get('/blogs', [BlogController::class, 'index']);
+Route::get('/', [BlogController::class, 'index']);
 
 Route::get('/blogs/create', [BlogController::class, 'create']);
 

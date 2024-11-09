@@ -52,4 +52,12 @@ class SignController extends Controller
 
         return redirect("/sign-in");   
     }
+
+    public function signout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect("/");
+    }
 }
