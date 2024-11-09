@@ -22,7 +22,7 @@ Route::get('/sign-up', [SignController::class, 'signup']);
 
 Route::post('/sign-up', [SignController::class, 'create'])->name('sign-up');
 
-Route::get('/home', [ChartController::class, 'blogsBasedOnCategories'])->name('home');
+Route::get('/home', [ChartController::class, 'blogsBasedOnCategories'])->name('home')->middleware('auth');
 
 Route::get('/blogs', [BlogController::class, 'index']);
 

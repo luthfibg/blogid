@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->integer('read_in_minutes');
             $table->foreignId('author_id')->constrained(
                 table: 'users',
                 indexName: 'blogs_author_id'
