@@ -1,19 +1,23 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 ![alt text](https://github.com/luthfibg/blogid/blob/main/public/readme/screencapture-blogid-test-home.png?raw=true)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+    
+![Laravel 11](https://img.shields.io/badge/Laravel-11-f4645f?logo=laravel)
+![Flowbite](https://img.shields.io/badge/Flowbite-Tailwind-1e429f?logo=tailwindcss)
+![AlpineJs](https://img.shields.io/badge/Alpine-Js-77c1d2?logo=alpinejs)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003b57?logo=sqlite)
 
-## About Laravel
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About Blogid
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
+Blogid is the right place for those who are thirsty for writing, displaying their simple writings, while conveying knowledge to many people through cyberspace. Use your creativity to contribute to the knowledge of many people or just to entertain readers. Simple lines, changing the world's thinking!
+
+## App Tech
+
+A glance at the technologies used for application development. The use of technology will continue to grow, as applications grow.
+
+- [Laravel, PHP's Framework](https://laravel.com/).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
