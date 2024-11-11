@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use App\Models\BlogCategory;
 
 class BlogController extends Controller
 {
@@ -23,7 +26,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('post_blog');
+        $categories = BlogCategory::all();
+        return view('post_blog', compact('categories'));
     }
 
     /**
@@ -31,7 +35,27 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        //
+        // Generate slug
+        $slug = Str::slug($request->title);
+
+        echo 'Slug: ' . $slug;
+        // Pastikan slug unik
+        if (Blog::where('slug', $slug)->exists()) {
+            $slug .= '-' . time();
+        }
+
+        // Membuat blog baru
+        Blog::create([
+            'title' => $request->title,
+            'slug' => $slug,
+            'read_in_minutes' => $request->read_in_minutes,
+            'description' => $request->description,
+            'author_id' => Auth::id(), // Mendapatkan ID user yang login
+            'blog_category_id' => $request->category,
+            'body' => $request->body
+        ]);
+
+        return redirect()->route('home')->with('success', 'Blog created successfully!');
     }
 
     /**

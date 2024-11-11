@@ -18,19 +18,21 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        $this->call([UserSeeder::class, BlogCategorySeeder::class, SagaCategorySeeder::class]);
+        // $this->call([UserSeeder::class, BlogCategorySeeder::class, SagaCategorySeeder::class]);
+        $this->call(BlogCategorySeeder::class);
 
         // Mengambil semua user kecuali yang dikustom berdasarkan email
-        $filteredUsers = User::where('email', '!=', 'luthfi@gmail.com')->get();
+        // $filteredUsers = User::where('email', '!=', 'luthfi@gmail.com')->get();
+        BlogCategory::all();
 
-        Blog::factory(35)->recycle([
-            $filteredUsers,
-            BlogCategory::all(),
-        ])->create();
+        // Blog::factory(35)->recycle([
+        //     $filteredUsers,
+        //     BlogCategory::all(),
+        // ])->create();
 
-        Saga::factory(15)->recycle([
-            User::all(),
-            SagaCategory::all(),
-        ])->create();
+        // Saga::factory(15)->recycle([
+        //     User::all(),
+        //     SagaCategory::all(),
+        // ])->create();
     }
 }

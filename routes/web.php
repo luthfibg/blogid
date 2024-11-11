@@ -31,6 +31,8 @@ Route::get('/', [BlogController::class, 'index']);
 
 Route::get('/blogs/create', [BlogController::class, 'create']);
 
+Route::post('/blogs/create', [BlogController::class, 'store'])->name('blogs.store')->middleware('auth');
+
 Route::get('/blogs/{blog:slug}', [BlogController::class,'show']);
 
 // Route::get('authors-blog/{user:username}', function(User $user) {
