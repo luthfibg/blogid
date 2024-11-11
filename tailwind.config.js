@@ -19,8 +19,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
+                josefinsans: ['"Josefin Sans"', 'sans-serif'],
+                quicksand: ['Quicksand', 'sans-serif'],
                 body: [
-                    'Inter', 
+                    'Inter',
+                    'Quicksand',
+                    'JosefinSans',
                     'ui-sans-serif', 
                     'system-ui', 
                     '-apple-system', 

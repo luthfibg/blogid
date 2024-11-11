@@ -21,17 +21,17 @@
     </article> --}}
 
     <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+        <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
             <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
                 <header class="mb-4 lg:mb-6 not-format">
                     <address class="flex items-center mb-6 not-italic">
-                        <div class="inline-flex gap-4 items-center mr-3 text-sm text-gray-900 dark:text-white">
+                        <div class="inline-flex gap-4 items-center w-full mr-3 text-sm text-gray-900 dark:text-white">
                             <img class="w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                             <div>
-                                <a href="/blogs?author={{ $blog->author->username }}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{ $blog->author->name }}</a>
-                                <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{ $blog->created_at->diffForHumans() }}</time></p>
+                                <a href="/blogs?author={{ $blog->author->username }}" rel="author" class="text-xl font-bold font-quicksand text-secondary-500 dark:text-gray-100">{{ $blog->author->name }}</a>
+                                <p class="text-base tracking-tighter md:tracking-normal font-quicksand text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{ $blog->created_at->diffForHumans() }}</time></p>
                             </div>
-                            <div>
+                            <div class="ml-auto">
                                 <a href="/blogs?blogCategory={{ $blog->blogCategory->slug }}" class="flex justify-between items-center text-gray-500">
                                     <span class="bg-{{ $blog->blogCategory->color }}-100 text-{{ $blog->blogCategory->color }}-800 text-xs font-medium inline-flex items-center px-1.5 py-0.5 rounded dark:bg-{{ $blog->blogCategory->color }}-100 dark:text-{{ $blog->blogCategory->color }}-800">
                                         @if ($blog->blogCategory->id == 1)
@@ -72,12 +72,14 @@
                             </div>
                         </div>
                     </address>
-                    <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
+                    <div class="mb-3 flex space-x-2 items-center">
+                        <div class="w-3 h-3 rounded-full bg-primary-400"></div>
+                        <p class="font-quicksand text-sm">{{ $blog->read_in_minutes }} minutes read</p>
+                    </div>
+                    <h1 class="mb-4 text-3xl font-josefinsans font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
                 </header>
-                <p class="lead">Flowbite is an open-source library of UI components built with the utility-first
-                    classes from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
-                    datepickers.</p>
-                <p>{{ $blog->body }}</p>
+                <p class="lead font-quicksand font-semibold">{{  $blog->description }}</p>
+                <p class="font-quicksand md:text-md tracking-tight leading-normal">{{ $blog->body }}</p>
             </article>
         </div>
     </main>

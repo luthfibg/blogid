@@ -8,6 +8,12 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    {{-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
     <title>Blogid</title>
 </head>
 <body>
@@ -16,7 +22,7 @@
 
       <x-header>{{ $title }}</x-header>
     
-      <main class="md:bg-gray-50">
+      <main class="{{ $title == 'Baca Blog' ? 'bg-white' : 'md:bg-gray-50' }}">
         <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8">
             {{ $slot }}
         </div>
