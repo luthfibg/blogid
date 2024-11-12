@@ -74,6 +74,7 @@ export default {
     plugins: [
         require('flowbite/plugin'),
         require('flowbite-typography'),
+        require('@tailwindcss/typography'),
     ],
     safelist: [
         'bg-blue-100',

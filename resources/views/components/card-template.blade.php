@@ -8,7 +8,7 @@
     @endisset
 
     {{-- Card Body --}}
-    <div class="p-4">
+    <div class="p-4 prose prose-lg font-quicksand md:text-md tracking-tight">
         {{ $slot }}
     </div>
 

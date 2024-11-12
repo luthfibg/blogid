@@ -49,8 +49,8 @@
                     </span>
                     <span class="text-xs font-light text-gray-400">{{ $blog->created_at->diffForHumans() }}</span>
                 </a>
-                <h4 class="mb-5 xl:mb-2 leading-6 text-xl font-bold tracking-tight text-gray-900 dark:text-white h-[25%]"><a href="/blogs/{{ $blog['slug'] }}">{{ $blog['title'] }}</a></h4>
-                <p class="xl:mb-1 text-sm font-light text-gray-500 dark:text-gray-400 h-[40%]">{{ Str::limit($blog['body'], '100') }}</p>
+                <h4 class="mb-5 xl:mb-2 leading-6 text-md font-bold tracking-tight text-gray-900 dark:text-white h-[25%]"><a href="/blogs/{{ $blog['slug'] }}">{{ $blog['title'] }}</a></h4>
+                <div class="prose prose-lg font-quicksand xl:mb-1 text-sm font-medium text-gray-500 dark:text-gray-400 h-[40%] ">{!! Str::limit($blog->body, '100') !!}</div>
                 <div class="flex justify-between items-center bottom-0 h-auto">
                     <a href="/blogs?author={{ $blog->author->username }}" class="flex items-center space-x-2 text-gray-400">
                         <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Green avatar" />

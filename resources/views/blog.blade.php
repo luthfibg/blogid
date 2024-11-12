@@ -76,10 +76,12 @@
                         <div class="w-3 h-3 rounded-full bg-primary-400"></div>
                         <p class="font-quicksand text-sm">{{ $blog->read_in_minutes }} minutes read</p>
                     </div>
-                    <h1 class="mb-4 text-3xl font-josefinsans font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
+                    <h1 class="mb-4 text-3xl font-josefinsans font-extrabold tracking-tighter leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
                 </header>
                 <p class="lead font-quicksand font-semibold">{{  $blog->description }}</p>
-                <p class="font-quicksand md:text-md tracking-tight leading-normal">{{ $blog->body }}</p>
+                <div class="prose prose-lg font-quicksand md:text-md tracking-tight leading-normal">
+                    {!! $blog->body !!}
+                </div>
             </article>
         </div>
     </main>
