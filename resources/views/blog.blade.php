@@ -79,7 +79,7 @@
                     <h1 class="mb-4 text-3xl font-josefinsans font-extrabold tracking-tighter leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
                 </header>
                 <p class="lead font-quicksand font-semibold">{{  $blog->description }}</p>
-                <div class="prose prose-lg font-quicksand md:text-md tracking-tight leading-normal">
+                <div class="prose prose-lg font-quicksand text-gray-800 text-justify md:text-md tracking-tight leading-normal">
                     {!! $blog->body !!}
                 </div>
             </article>
