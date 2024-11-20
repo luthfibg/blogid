@@ -20,9 +20,9 @@
     <div class="min-h-full">
       <x-navbar />
 
-      <x-header>{{ $title }}</x-header>
+      {{-- <x-header>{{ $title }}</x-header> --}}
     
-      <main class="{{ ($title == 'Baca Blog' || $title == 'Sign in to') ? 'bg-white' : 'md:bg-gray-50' }}">
+      <main class="{{ $title == 'Semua Blog' ? 'md:bg-gray-50' : 'bg-white' }}">
         <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8">
             {{ $slot }}
         </div>
