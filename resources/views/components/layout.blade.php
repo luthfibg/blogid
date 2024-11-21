@@ -17,13 +17,18 @@
     <title>Blogid</title>
 </head>
 <body>
-    <div class="min-h-full">
+    <div class="h-screen flex flex-col">
       <x-navbar />
 
       {{-- <x-header>{{ $title }}</x-header> --}}
     
-      <main class="{{ $title == 'Semua Blog' ? 'md:bg-gray-50' : 'bg-white' }}">
+      {{-- <main class="{{ $title == 'Semua Blog' ? 'md:bg-gray-50' : 'bg-white' }}">
         <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8">
+            {{ $slot }}
+        </div>
+      </main> --}}
+      <main class="bg-white flex-1">
+        <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8 h-full">
             {{ $slot }}
         </div>
       </main>
