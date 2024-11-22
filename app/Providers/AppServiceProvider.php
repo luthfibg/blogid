@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Blog;
+use App\Observers\BlogObserver;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,5 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::component('form-template', \App\View\Components\FormTemplate::class);
+        Route::aliasMiddleware('track.blog.view', \App\Http\Middleware\TrackBlogView::class);
+        Blog::observe(BlogObserver::class);
     }
 }

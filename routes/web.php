@@ -33,7 +33,7 @@ Route::get('/blogs/create', [BlogController::class, 'create']);
 
 Route::post('/blogs/create', [BlogController::class, 'store'])->name('blogs.store')->middleware('auth');
 
-Route::get('/blogs/{blog:slug}', [BlogController::class,'show']);
+Route::get('/blogs/{blog:slug}', [BlogController::class,'show'])->middleware('track.blog.view');
 
 // Route::get('authors-blog/{user:username}', function(User $user) {
 //     return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);

@@ -25,6 +25,7 @@ return new class extends Migration
                 table: 'blog_categories',
                 indexName: 'blogs_category_id'
             );
+            $table->integer('opened')->default(0);
             $table->text('body');
             $table->timestamps();
         });
