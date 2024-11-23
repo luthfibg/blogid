@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,10 @@ class ChartController extends Controller
             'Game Development' => 'game'
         ];
 
+        // Ambil data blogs
+        $blogs = Blog::with('blogCategory')->orderBy('created_at', 'desc')->get();
+
+
         // Ambil nama kategori dan hitung jumlah blog pada setiap kategori
         $categories = BlogCategory::withCount('blogs')->get();
 
@@ -32,6 +37,10 @@ class ChartController extends Controller
             'data' => $categories->pluck('blogs_count'),
         ];
 
-        return view('home', ['title' => 'Beranda BLOGID', 'chartData' => $data]);
+        return view('home', [
+            'title' => 'Beranda BLOGID',
+            'chartData' => $data,
+            'blogs' => $blogs,
+        ]);
     }
 }

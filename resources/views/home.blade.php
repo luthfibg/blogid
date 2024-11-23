@@ -8,7 +8,7 @@
   </div>
   <div class="grid md:cols-12 grid-flow-col gap-4">
     <div class="col-span-9">
-      <x-blog-table></x-blog-table>
+      <x-blog-table :blogs="$blogs"></x-blog-table>
     </div>
     <x-blog-summary class="col-span-3"></x-blog-summary>
   </div>
