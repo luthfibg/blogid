@@ -3,8 +3,11 @@
         <!-- Kolom Kiri: Kartu Data Diri -->
         <div class="col-span-1 h-full w-full">
           <div class="block h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="bg-[#F7F7F7] rounded-full w-[7rem] h-[7rem] my-3 mx-auto overflow-hidden pt-2">
+            {{-- <div class="bg-[#F7F7F7] rounded-full w-[7rem] h-[7rem] my-3 mx-auto overflow-hidden pt-2">
                 <img src="{{ asset('images/profile-placeholder.jpg') }}" alt="profile-placeholder">
+            </div> --}}
+            <div class="bg-[#F7F7F7] rounded-full w-[7rem] h-[7rem] my-3 mx-auto overflow-hidden">
+                <img src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="profile-image">
             </div>
             <h5 class="text-center mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Profile Name</h5>
             <p class="font-normal text-gray-700 dark:text-gray-400">

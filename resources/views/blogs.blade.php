@@ -53,7 +53,7 @@
                 <div class="prose prose-lg font-quicksand xl:mb-1 text-sm font-medium text-gray-500 dark:text-gray-400 h-[40%] ">{!! Str::limit($blog->body, '100') !!}</div>
                 <div class="flex justify-between items-center bottom-0 h-auto">
                     <a href="/blogs?author={{ $blog->author->username }}" class="flex items-center space-x-2 text-gray-400">
-                        <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Green avatar" />
+                        <img class="w-7 h-7 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Solstice Prime avatar" />
                         <span class="text-xs dark:text-white p-0">
                             {{ $blog->author->name }}
                         </span>
