@@ -71,7 +71,12 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $categories = BlogCategory::all();
+        return view('edit_blog', [
+            'title' => 'Edit Blog',
+            'blog' => $blog,
+            'categories' => $categories,
+        ]);
     }
 
     /**

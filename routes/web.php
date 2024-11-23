@@ -35,6 +35,8 @@ Route::post('/blogs/create', [BlogController::class, 'store'])->name('blogs.stor
 
 Route::get('/blogs/{blog:slug}', [BlogController::class,'show'])->middleware('track.blog.view');
 
+Route::get('/blogs/edit/{blog:slug}', [BlogController::class, 'edit']);
+
 // Route::get('authors-blog/{user:username}', function(User $user) {
 //     return view('blogs', ['title' => (count($user->blogs)) . ' Blog oleh ' . $user->name, 'blogs' => $user->blogs]);
 // });
