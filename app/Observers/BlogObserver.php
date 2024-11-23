@@ -12,7 +12,8 @@ class BlogObserver
      */
     public function created(Blog $blog): void
     {
-        //
+        $badge = Badge::firstOrCreate(['user_id' => $blog->author_id]);
+        $badge->increment('number_of_posts');
     }
 
     /**
@@ -41,7 +42,10 @@ class BlogObserver
      */
     public function deleted(Blog $blog): void
     {
-        //
+        $badge = Badge::where('user_id', $blog->author_id)->first();
+        if ($badge) {
+            $badge->decrement('number_of_posts');
+        }
     }
 
     /**

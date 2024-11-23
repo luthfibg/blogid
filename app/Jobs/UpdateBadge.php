@@ -2,11 +2,12 @@
 
 namespace App\Jobs;
 
+use App\Models\Blog;
 use App\Models\Badge;
-use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Bus\Dispatchable;
 
 class UpdateBadge implements ShouldQueue
 {
@@ -29,7 +30,10 @@ class UpdateBadge implements ShouldQueue
      */
     public function handle(): void
     {
-        $badge = Badge::firstOrCreate(['user_id' => $this->authorId]);
+        $badge = Badge::firstOrCreate(
+            ['user_id' => $this->authorId],
+            ['number_of_posts' => 0]
+        );
 
         // Periksa jumlah opened dan tingkatkan badge yang relevan
         if ($this->opened >= 50 && $this->opened <= 200) {

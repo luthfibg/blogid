@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\Blog;
-use App\Models\Badge;
 use App\Jobs\UpdateBadge;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

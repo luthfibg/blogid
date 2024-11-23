@@ -17,14 +17,14 @@ return new class extends Migration
                 table: 'users',
                 indexName: 'badges_user_id'
             );
-            $table->integer('number_of_posts');
-            $table->integer('copper_posts');
-            $table->integer('silver_posts');
-            $table->integer('gold_posts');
-            $table->integer('copper_star_posts');
-            $table->integer('silver_star_posts');
-            $table->integer('gold_star_posts');
-            $table->integer('platinum_star_posts');
+            $table->integer('number_of_posts')->default(0);
+            $table->integer('copper_posts')->default(0);
+            $table->integer('silver_posts')->default(0);
+            $table->integer('gold_posts')->default(0);
+            $table->integer('copper_star_posts')->default(0);
+            $table->integer('silver_star_posts')->default(0);
+            $table->integer('gold_star_posts')->default(0);
+            $table->integer('platinum_star_posts')->default(0);
             $table->timestamps();
         });
     }
