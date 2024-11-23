@@ -15,15 +15,20 @@ class Blog extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
-     * Get the author of the blog
+     * Get the author of the blog.
      *
-     * @return BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\User>
      */
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get the category of the blog.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\BlogCategory>
+     */
     public function blogCategory(): BelongsTo
     {
         return $this->belongsTo(BlogCategory::class);

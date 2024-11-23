@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChartController extends Controller
 {
@@ -21,8 +23,9 @@ class ChartController extends Controller
             'Game Development' => 'game'
         ];
 
+        // dd(Auth::user()->blogs());
         // Ambil data blogs
-        $blogs = Blog::with('blogCategory')->orderBy('created_at', 'desc')->get();
+        $blogs = Auth::user()->blogs()->with('blogCategory')->orderBy('created_at','desc')->get();
 
 
         // Ambil nama kategori dan hitung jumlah blog pada setiap kategori

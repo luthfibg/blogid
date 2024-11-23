@@ -40,16 +40,13 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+    
     /**
-     * Get the blogs written by the user.
+     * Get the blogs written by this user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Blog>
      */
