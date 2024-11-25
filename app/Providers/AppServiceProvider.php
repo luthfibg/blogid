@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Blog;
+use App\Policies\BlogPolicy;
 use App\Observers\BlogObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;

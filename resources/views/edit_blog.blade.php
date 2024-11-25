@@ -6,8 +6,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form method="POST" action="{{ route('blogs.store') }}">
+                    <form method="POST" action="{{ route('blogs.update', $blog->slug) }}">
                         @csrf
+                        @method('PUT')
                         <div class="mb-4">
                             <label for="title" class="block mb-2 text-md text-gray-600 font-medium  dark:text-white">Title<span class="text-red-500">*</span></label>
                             <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your Blog Title" value="{{ $blog->title }}" required />
@@ -37,8 +38,7 @@
 
                         <div class="mb-4">
                             <label class="block text-md mb-2 text-gray-600 font-medium">Deskripsi</label>
-                            <textarea name="description" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="description" placeholder="(Optional)">
-                                {{ old('description', $blog->description) }}
+                            <textarea name="description" class="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="description" placeholder="(Optional)">{{ old('description', $blog->description) }}
                             </textarea>
                         </div>
 

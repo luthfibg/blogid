@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\BlogCategory;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class BlogController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -18,7 +20,6 @@ class BlogController extends Controller
     {
         $blogs = Blog::filterBlog(request(['search', 'blogCategory', 'author']))->latest()->paginate(9)->withQueryString();
         return view('blogs', ['title' => 'Semua Blog', 'blogs' => $blogs]);
-
     }
 
     /**
@@ -84,7 +85,19 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        // Pastikan pengguna memiliki izin untuk mengupdate blog
+        $this->authorize('update', $blog);
+
+        // Update blog langsung menggunakan model binding
+        $blog->update([
+            'title' => $request->title,
+            'read_in_minutes' => $request->read_in_minutes,
+            'description' => $request->description,
+            'blog_category_id' => $request->category,
+            'body' => $request->body,
+        ]);
+
+        return redirect()->route('home')->with('success', 'Blog updated successfully!');
     }
 
     /**
