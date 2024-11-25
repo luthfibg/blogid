@@ -1,6 +1,6 @@
 @props(['data'])
 
-<div class="p-3 md:p-6 lg:px-10 bg-white rounded-lg border border-none shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div class="p-3 w-full md:p-6 lg:px-10 bg-white rounded-lg border border-none shadow-md dark:bg-gray-800 dark:border-gray-700">
     <h4 class="font-medium text-gray-500 w-full mb-5 md:mb-8">Ringkasan Blog</h4>
     <div class="grid gap-3 md:gap-8 lg:gap-20 lg:grid-cols-3 sm:grid-cols-2">
       <div class="w-full">

@@ -17,7 +17,7 @@
     <title>Blogid</title>
 </head>
 <body>
-    <div class="h-screen flex flex-col">
+    <div class="h-screen w-[100%] flex flex-col">
       <x-navbar />
 
       {{-- <x-header>{{ $title }}</x-header> --}}
@@ -28,7 +28,7 @@
         </div>
       </main> --}}
       <main class="bg-white flex-1">
-        <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8 h-full">
+        <div class="container mx-auto max-w-7xl px-4 py-3 md:py-6 sm:px-6 lg:px-8 w-full h-full">
             {{ $slot }}
         </div>
       </main>
