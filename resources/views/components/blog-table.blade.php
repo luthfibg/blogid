@@ -79,8 +79,11 @@
                     <th scope="col" class="px-6 py-3">
                         Kategori
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 w-12">
                         Durasi Baca (Menit)
+                    </th>
+                    <th scope="col" class="px-6 py-3 w-12">
+                        Jumlah Pembaca
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -92,7 +95,7 @@
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <input id="checkbox-table-search-1" type="checkbox" class="data-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
@@ -102,8 +105,11 @@
                         <td class="px-6 py-4">
                             {{ $blog->blogCategory->name }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 w-12">
                             {{ $blog->read_in_minutes }}
+                        </td>
+                        <td class="px-6 py-4 w-12">
+                            {{ $blog->opened }}
                         </td>
                         <td class="px-6 py-4 gap-6">
                             <a href="/blogs/edit/{{ $blog->slug }}" class="font-medium text-blue-600 inline-block me-2 dark:text-blue-500 hover:underline">
@@ -155,6 +161,9 @@
         </table>
     </div>
 </div>
+
+<x-check-all></x-check-all>
+
 <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
     <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
     <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
